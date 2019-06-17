@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.avatech.edi.hebo.mapper.hbMapper">
+
+         <resultMap id="VoucherMap" type="com.avatech.edi.hebo.model.bo.hb.Voucher">
+                    <result column="RefDate" property="refDate" jdbcType="DATE"/>
+                    <result column="DueDate" property="dueDate" jdbcType="DATE"/>
+                    <result column="TaxDate" property="taxDate" jdbcType="DATE"/>
+                    <result column="Remarks" property="remarks" jdbcType="VARCHAR"/>
+                    <result column="Creator" property="creator" jdbcType="VARCHAR"/>
+                    <result column="Approver" property="creator" jdbcType="VARCHAR"/>
+                    <result column="SupplCode" property="supplCode" jdbcType="VARCHAR"/>
+                    <result column="U_OaClaiNum" property="u_OaClaiNum" jdbcType="VARCHAR"/>
+                    <result column="U_Claimatter" property="u_Claimatter" jdbcType="VARCHAR"/>
+         </resultMap>
+         <resultMap id="VoucherItemMap" type="com.avatech.edi.hebo.model.bo.hb.VoucherItem">
+                    <result column="AcctCode" property="acctCode" jdbcType="VARCHAR"/>
+                    <result column="ShortName" property="shortName" jdbcType="VARCHAR"/>
+                    <result column="Debit" property="debit" jdbcType="DECIMAL"/>
+                    <result column="CashFlow" property="cashFlow" jdbcType="INTEGER"/>
+                    <result column="OcrCode" property="ocrCode" jdbcType="VARCHAR"/>
+                    <result column="OcrCode2" property="ocrCode2" jdbcType="VARCHAR"/>
+                    <result column="LineMemo" property="lineMemo" jdbcType="VARCHAR"/>
+                    <result column="VatGroup" property="vatGroup" jdbcType="VARCHAR"/>
+                    <result column="U_FeeDate" property="u_FeeDate" jdbcType="VARCHAR"/>
+                    <result column="U_BusiAddress" property="u_BusiAddress" jdbcType="VARCHAR"/>
+                    <result column="U_LineRemarks" property="u_LineRemarks" jdbcType="VARCHAR"/>
+         </resultMap>
+         <resultMap id="AdvanceOrderMap" type="com.avatech.edi.hebo.model.bo.hb.AdvanceOrder">
+                    <result column="CardCode" property="cardCode" jdbcType="VARCHAR"/>
+                    <result column="DocDate" property="docDate" jdbcType="DATE"/>
+                    <result column="TaxDate" property="taxDate" jdbcType="DATE"/>
+                    <result column="DocDueDate" property="docDueDate" jdbcType="DATE"/>
+                    <result column="CompCode" property="compCode" jdbcType="VARCHAR"/>
+                    <result column="U_Submitter" property="u_Submitter" jdbcType="VARCHAR"/>
+                    <result column="SlpCode" property="slpCode" jdbcType="VARCHAR"/>
+                    <result column="U_Applicant" property="u_Applicant" jdbcType="VARCHAR"/>
+                    <result column="U_OaPoNum" property="u_OaPoNum" jdbcType="VARCHAR"/>
+                    <result column="OcrCoder2" property="ocrCoder2" jdbcType="VARCHAR"/>
+                    <result column="DocCur" property="docCur" jdbcType="VARCHAR"/>
+                    <result column="U_PRApplReason" property="u_PRApplReason" jdbcType="VARCHAR"/>
+                    <result column="OcrCode" property="ocrCode" jdbcType="VARCHAR"/>
+                    <result column="U_PoType" property="u_PoType" jdbcType="VARCHAR"/>
+                    <result column="Doctotal" property="doctotal" jdbcType="DECIMAL"/>
+                    <result column="U_OaPayUum" property="u_OaPayUum" jdbcType="VARCHAR"/>
+                    <result column="DocNum" property="docNum" jdbcType="VARCHAR"/>
+         </resultMap>
+         <resultMap id="AdvanceOrderItemMap" type="com.avatech.edi.hebo.model.bo.hb.AdvanceOrderItem">
+                    <result column="ItemCode" property="itemCode" jdbcType="VARCHAR"/>
+                    <result column="U_MaterialDetails" property="u_MaterialDetails" jdbcType="VARCHAR"/>
+                    <result column="PriceAftVat" property="priceAftVat" jdbcType="DECIMAL"/>
+                    <result column="VatGroup" property="vatGroup" jdbcType="VARCHAR"/>
+                    <result column="Quantity" property="quantity" jdbcType="DECIMAL"/>
+                    <result column="U_OALineNum" property="u_OALineNum" jdbcType="INTEGER"/>
+         </resultMap>
+
+
+         <insert id="insertVoucher" parameterType="com.avatech.edi.hebo.model.bo.hb.Voucher">
+             INSERT INTO "AVA_MS_OJDT" (
+                     "RefDate",
+                     "DueDate",
+                     "TaxDate",
+                     "Remarks",
+                     "Creator",
+                     "Approver",
+                     "SupplCode",
+                     "U_OaClaiNum",
+                     "U_Claimatter"
+              )
+             values(
+                      #{refDate},
+                      #{dueDate},
+                      #{taxDate},
+                      #{remarks},
+                      #{creator},
+                      #{creator},
+                      #{supplCode},
+                      #{u_OaClaiNum},
+                      #{u_Claimatter}
+             )
+         </insert>
+
+         <select id="searchVoucher" resultMap="VoucherMap">
+             SELECT
+                     T0."RefDate",
+                     T0."DueDate",
+                     T0."TaxDate",
+                     T0."Remarks",
+                     T0."Creator",
+                     T0."Approver",
+                     T0."SupplCode",
+                     T0."U_OaClaiNum",
+                     T0."U_Claimatter"
+             from "AVA_MS_OJDT" T0
+         </select>
+
+         <insert id="insertVoucherItem" parameterType="com.avatech.edi.hebo.model.bo.hb.VoucherItem">
+             INSERT INTO "AVA_MS_JDT1" (
+                     "AcctCode",
+                     "ShortName",
+                     "Debit",
+                     "CashFlow",
+                     "OcrCode",
+                     "OcrCode2",
+                     "LineMemo",
+                     "VatGroup",
+                     "U_FeeDate",
+                     "U_BusiAddress",
+                     "U_LineRemarks"
+              )
+             values(
+                      #{acctCode},
+                      #{shortName},
+                      #{debit},
+                      #{cashFlow},
+                      #{ocrCode},
+                      #{ocrCode2},
+                      #{lineMemo},
+                      #{vatGroup},
+                      #{u_FeeDate},
+                      #{u_BusiAddress},
+                      #{u_LineRemarks}
+             )
+         </insert>
+
+         <select id="searchVoucherItem" resultMap="VoucherItemMap">
+             SELECT
+                     T0."AcctCode",
+                     T0."ShortName",
+                     T0."Debit",
+                     T0."CashFlow",
+                     T0."OcrCode",
+                     T0."OcrCode2",
+                     T0."LineMemo",
+                     T0."VatGroup",
+                     T0."U_FeeDate",
+                     T0."U_BusiAddress",
+                     T0."U_LineRemarks"
+             from "AVA_MS_JDT1" T0
+         </select>
+
+         <insert id="insertAdvanceOrder" parameterType="com.avatech.edi.hebo.model.bo.hb.AdvanceOrder">
+             INSERT INTO "AVA_WM_ODPO" (
+                     "CardCode",
+                     "DocDate",
+                     "TaxDate",
+                     "DocDueDate",
+                     "CompCode",
+                     "U_Submitter",
+                     "SlpCode",
+                     "U_Applicant",
+                     "U_OaPoNum",
+                     "OcrCoder2",
+                     "DocCur",
+                     "U_PRApplReason",
+                     "OcrCode",
+                     "U_PoType",
+                     "Doctotal",
+                     "U_OaPayUum",
+                     "DocNum"
+              )
+             values(
+                      #{cardCode},
+                      #{docDate},
+                      #{taxDate},
+                      #{docDueDate},
+                      #{compCode},
+                      #{u_Submitter},
+                      #{slpCode},
+                      #{u_Applicant},
+                      #{u_OaPoNum},
+                      #{ocrCoder2},
+                      #{docCur},
+                      #{u_PRApplReason},
+                      #{ocrCode},
+                      #{u_PoType},
+                      #{doctotal},
+                      #{u_OaPayUum},
+                      #{docNum}
+             )
+         </insert>
+
+         <select id="searchAdvanceOrder" resultMap="AdvanceOrderMap">
+             SELECT
+                     T0."CardCode",
+                     T0."DocDate",
+                     T0."TaxDate",
+                     T0."DocDueDate",
+                     T0."CompCode",
+                     T0."U_Submitter",
+                     T0."SlpCode",
+                     T0."U_Applicant",
+                     T0."U_OaPoNum",
+                     T0."OcrCoder2",
+                     T0."DocCur",
+                     T0."U_PRApplReason",
+                     T0."OcrCode",
+                     T0."U_PoType",
+                     T0."Doctotal",
+                     T0."U_OaPayUum",
+                     T0."DocNum"
+             from "AVA_WM_ODPO" T0
+         </select>
+
+         <insert id="insertAdvanceOrderItem" parameterType="com.avatech.edi.hebo.model.bo.hb.AdvanceOrderItem">
+             INSERT INTO "AVA_WM_DPO1" (
+                     "ItemCode",
+                     "U_MaterialDetails",
+                     "PriceAftVat",
+                     "VatGroup",
+                     "Quantity",
+                     "U_OALineNum"
+              )
+             values(
+                      #{itemCode},
+                      #{u_MaterialDetails},
+                      #{priceAftVat},
+                      #{vatGroup},
+                      #{quantity},
+                      #{u_OALineNum}
+             )
+         </insert>
+
+         <select id="searchAdvanceOrderItem" resultMap="AdvanceOrderItemMap">
+             SELECT
+                     T0."ItemCode",
+                     T0."U_MaterialDetails",
+                     T0."PriceAftVat",
+                     T0."VatGroup",
+                     T0."Quantity",
+                     T0."U_OALineNum"
+             from "AVA_WM_DPO1" T0
+         </select>
+
+</mapper>
