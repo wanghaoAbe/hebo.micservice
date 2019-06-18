@@ -6,6 +6,8 @@
 package com.avatech.edi.hebo.model.bo.hb;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigDecimal;
+
 public class VoucherItem{
 
 
@@ -34,7 +36,7 @@ public class VoucherItem{
      * 现金流
      */
     @JsonProperty(value = "CashFlow")
-    private int cashFlow;
+    private Integer cashFlow;
 
 
     /**
@@ -129,14 +131,14 @@ public class VoucherItem{
      /**
      * 获取现金流
      */
-    public int getCashFlow() {
+    public Integer getCashFlow() {
         return cashFlow;
     }
 
     /**
      * 设置现金流
      */
-    public void setCashFlow(Int cashFlow) {
+    public void setCashFlow(Integer cashFlow) {
         this.cashFlow = cashFlow;
     }
      /**
