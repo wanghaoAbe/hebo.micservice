@@ -14,21 +14,15 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public interface hbMapper{
-
-    void insertVoucher(Voucher Voucher);
+public interface VourcherMapper {
 
     List<Voucher> searchVoucher();
 
-    void insertVoucherItem(VoucherItem VoucherItem);
-
     List<VoucherItem> searchVoucherItem();
-
-    void insertAdvanceOrder(AdvanceOrder AdvanceOrder);
 
     List<AdvanceOrder> searchAdvanceOrder();
 
-    void insertAdvanceOrderItem(AdvanceOrderItem AdvanceOrderItem);
-
     List<AdvanceOrderItem> searchAdvanceOrderItem();
+
+    String searchAcctCode(String costType);
 }

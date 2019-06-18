@@ -88,6 +88,9 @@ public class VoucherItem{
     private String u_LineRemarks;
 
 
+    private String costType;
+
+
 
      /**
      * 获取科目
@@ -226,10 +229,20 @@ public class VoucherItem{
         return u_LineRemarks;
     }
 
+    public String getCostType() {
+        return costType;
+    }
+
+    public void setCostType(String costType) {
+        this.costType = costType;
+    }
+
     /**
      * 设置行内备注
      */
     public void setU_LineRemarks(String u_LineRemarks) {
         this.u_LineRemarks = u_LineRemarks;
     }
+
+
 }

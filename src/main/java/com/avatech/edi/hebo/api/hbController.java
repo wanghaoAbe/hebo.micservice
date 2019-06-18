@@ -5,30 +5,34 @@
  */
 package com.avatech.edi.hebo.api;
 
-import com.avatech.edi.hebo.service.hbService;
-import com.avatech.edi.hebo.repository.hbRepository;
+import com.avatech.edi.hebo.model.bo.hb.response.Result;
+import com.avatech.edi.hebo.service.HandleDocumentService;
+import com.avatech.edi.hebo.service.VoucherService;
 import com.avatech.edi.hebo.model.bo.hb.Voucher;
-import com.avatech.edi.hebo.model.bo.hb.VoucherItem;
-import com.avatech.edi.hebo.model.bo.hb.AdvanceOrder;
-import com.avatech.edi.hebo.model.bo.hb.AdvanceOrderItem;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("v1/*")
+@Slf4j
 public class hbController {
-
-    private final Logger logger = LoggerFactory.getLogger(hbController.class);
-
     @Autowired
-    private hbService hbService;
+    private HandleDocumentService documentService;
 
-    @Autowired
-    private hbRepository hbRepository;
-
-
-
+    @PostMapping("voucher")
+    public @ResponseBody  Result generateVourcher(@RequestBody Voucher voucher){
+            Result result = null;
+        try {
+            log.info("接收凭单信息"+voucher);
+            String docEntry = documentService.HandLeVourcher(voucher);
+            result = Result.ok(docEntry);
+            log.info("生成凭单成功");
+        }catch (Exception e){
+            log.error("生成凭单异常",e);
+            result = Result.error("1",e.getMessage());
+        }
+        return result;
+    }
 }
