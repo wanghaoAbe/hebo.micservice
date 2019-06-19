@@ -5,6 +5,7 @@
  */
 package com.avatech.edi.hebo.api;
 
+import com.avatech.edi.hebo.api.DocJudgement.DocJudgement;
 import com.avatech.edi.hebo.model.bo.hb.response.Result;
 import com.avatech.edi.hebo.service.HandleDocumentService;
 import com.avatech.edi.hebo.service.VoucherService;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("v1/*")
 @Slf4j
-public class hbController {
+public class VourcherController {
     @Autowired
     private HandleDocumentService documentService;
 
@@ -26,7 +27,7 @@ public class hbController {
             Result result = null;
         try {
             log.info("接收凭单信息"+voucher);
-            String docEntry = documentService.HandLeVourcher(voucher);
+            String docEntry = documentService.HandleVourcher(voucher);
             result = Result.ok(docEntry);
             log.info("生成凭单成功");
         }catch (Exception e){

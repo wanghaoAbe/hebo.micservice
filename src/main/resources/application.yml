@@ -1,6 +1,15 @@
-# EDI
+spring:
+  datasource:
+    url: jdbc:sqlserver://DESKTOP-N0RVHB7; databasename=hebotest;
+    username: sa
+    password: 123
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      show-sql: true
 server:
-  port: 9101
+  port: 8082
 logging:
   level:
     org:

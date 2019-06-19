@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="hebo.micservice" options="-parameters" />
+      <module name="hebo.micservice" options="-parameters -extdirs C:\workspace\zero\EDI\hebo.micservice/lib" />
     </option>
   </component>
 </project>

@@ -13,7 +13,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 public interface VourcherRepository {
-    public String fetchAcctCode(String costType);
+
+     String fetchAcctCode(String costType);
 
 
 }
