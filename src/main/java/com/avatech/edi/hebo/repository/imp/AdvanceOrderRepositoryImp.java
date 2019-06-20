@@ -1,4 +1,7 @@
 package com.avatech.edi.hebo.repository.imp;
 
-public class AdvanceOrderRepositoryImp {
+import com.avatech.edi.hebo.repository.AdvanceOrderRepository;
+
+public class AdvanceOrderRepositoryImp implements AdvanceOrderRepository {
+
 }

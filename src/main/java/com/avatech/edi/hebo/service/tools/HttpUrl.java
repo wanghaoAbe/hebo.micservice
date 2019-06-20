@@ -11,5 +11,5 @@ public class HttpUrl {
     /*
     预付款url
      */
-    private static final  String PURCHASEDOWPAY = BASEURL+"PurchaseDownPayments";
+    public static final  String PURCHASEDOWPAY = BASEURL+"PurchaseDownPayments";
 }

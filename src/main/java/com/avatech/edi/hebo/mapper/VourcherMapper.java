@@ -20,9 +20,6 @@ public interface VourcherMapper {
 
     List<VoucherItem> searchVoucherItem();
 
-    List<AdvanceOrder> searchAdvanceOrder();
-
-    List<AdvanceOrderItem> searchAdvanceOrderItem();
 
     String searchAcctCode(String costType);
 }
